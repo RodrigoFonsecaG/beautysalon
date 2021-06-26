@@ -10,10 +10,12 @@ O site **BeautySalon** é um projeto de website ensinado na NLW/Together na tril
 
 ---------
 ---------
-
+screencapture-rodrigofonsecag-github-io-beautysalon-2021-06-26-18_14_46.png
 
 ## 🖥️ Demonstração
 [![BeautySalon](screencapture-rodrigofonsecag-github-io-beautysalon-2021-06-26-18_09_12.png "Clique para acessar o projeto")](https://rodrigofonsecag.github.io/beautysalon/ "Clique para acessar o projeto")  
+
+[![BeautySalon](screencapture-rodrigofonsecag-github-io-beautysalon-2021-06-26-18_14_46.png "Clique para acessar o projeto")]
 
 ## >>**[Clique aqui para acessar a demonstração do website](https://rodrigofonsecag.github.io/beautysalon/)**<<
 
