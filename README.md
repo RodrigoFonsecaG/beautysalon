@@ -13,7 +13,7 @@ O site **BeautySalon** é um projeto de website ensinado na NLW/Together na tril
 
 
 ## 🖥️ Demonstração
-[![Bikcraft](screencapture-vagalumes-vercel-app-2021-06-26-17_38_44.png "Clique para acessar o projeto")](https://rodrigofonsecag.github.io/beautysalon/ "Clique para acessar o projeto")  
+[![BeautySalon](screencapture-rodrigofonsecag-github-io-beautysalon-2021-06-26-18_09_12.png "Clique para acessar o projeto")](https://rodrigofonsecag.github.io/beautysalon/ "Clique para acessar o projeto")  
 
 ## >>**[Clique aqui para acessar a demonstração do website](https://rodrigofonsecag.github.io/beautysalon/)**<<
 
