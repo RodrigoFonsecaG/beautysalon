@@ -126,4 +126,26 @@ if (accordionTitle.length) {
     accordionItem.addEventListener('click', activeAccordion);
   });
 }
+/*FRASE DO DIA*/
 
+function fraseDoDia() {
+
+  const fraseP = document.createElement('p');
+  const brandFooter = document.querySelector('.brand');
+  brandFooter.appendChild(fraseP);
+  fraseP.style.marginTop = '2rem';
+
+  async function puxarDados() {
+    try {
+      const dadosResponse = await fetch('https://api.adviceslip.com/advice');
+      const dadosJson = await dadosResponse.json();
+      fraseP.innerHTML = `Frase do dia: ${dadosJson.slip.advice}`
+      console.log(dadosJson)
+    } catch (erro) {
+      console.log(erro);
+    }
+  }
+  puxarDados();
+}
+
+fraseDoDia();
