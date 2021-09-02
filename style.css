@@ -22,7 +22,7 @@ img {
 /*==================== VARIABLES ======================*/
 :root {
   /* colors */
-  --hue: 159 !important;
+  --hue: 159;
   /* HSL color mode */
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -594,7 +594,7 @@ footer .social a:hover {
     -webkit-font-smoothing: antialiased;
   }
 
-  nav .menu ul li a.title.active{
+  nav .menu ul li a.title.active {
     font-weight: bold;
     -webkit-font-smoothing: auto;
   }
@@ -676,5 +676,61 @@ footer .social a:hover {
   :root {
     --title-font-size: 2.25rem;
     --subtitle-font-size: 1.125rem;
+  }
+}
+
+/*==================== QUALIDADES ======================*/
+
+.qualidade-item {
+  font-size: 1.5rem;
+}
+
+.qualidade-item.ativo {
+  font-size: 1.5rem;
+  color: var(--base-color);
+}
+
+.qualidade-item::after {
+  content: '▼';
+  display: inline-block;
+  transform: rotate(180deg);
+  margin: 10px;
+}
+
+.qualidade-item.ativo::after {
+  content: '▼';
+  color: var(--base-color);
+  transform: rotate(0);
+  transition: transform 0.3s;
+}
+
+
+
+.qualidade-text {
+  display: none;
+}
+
+.qualidade-text.ativo {
+  display: block;
+  padding-bottom: 1rem;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  from {
+    transform: rotate(180deg);
   }
 }
