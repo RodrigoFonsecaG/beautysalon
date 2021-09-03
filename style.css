@@ -719,6 +719,7 @@ footer .social a:hover {
 .qualidade-text.ativo {
   display: block;
   padding-bottom: 1rem;
+  animation: show 0.3s forwards;
 }
 
 @keyframes show {
@@ -755,4 +756,12 @@ html.enUS body nav ul .lang {
   display: inline-block;
   width: 30px;
   height: 30px;
+}
+
+html body nav ul .lang {
+  transition: all 0.75s ease-in-out 0s;
+}
+
+html body nav ul .lang:hover {
+  transform: scale(1.2);
 }
