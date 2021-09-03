@@ -760,7 +760,6 @@ html.enUS body nav ul .lang {
 
 html body nav ul .lang {
   transition: all 0.75s ease-in-out 0s;
-  box-sizing: initial;
 }
 
 html body nav ul .lang:hover {
