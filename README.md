@@ -14,7 +14,7 @@ Para completar o projeto adicionei algumas funções como: accordion list, frase
 ---------
 
 ## 🖥️ Demonstração
-[![BeautySalon](screencapture-rodrigofonsecag-github-io-beautysalon-2021-06-26-18_09_12.png "Clique para acessar o projeto")](https://rodrigofonsecag.github.io/beautysalon/ "Clique para acessar o projeto")  
+[![BeautySalon](screencapture-rodrigofonsecag-github-io-beautysalon-2021-06-26-18_09_12.png "Clique para acessar o projeto")](https://beautysalon-seven.vercel.app/ "Clique para acessar o projeto")  
 
 
 ## >>**[Clique aqui para acessar a demonstração do website](https://beautysalon-seven.vercel.app/)**<<
