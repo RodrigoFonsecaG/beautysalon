@@ -61,7 +61,8 @@ scrollReveal.reveal(
   `#home .image,#home .text,
 #about .image, #about .text,
 #services header, #services .card,
-#testimonials header, #testimonials .testimonials,
+#testimonials header, #testimonials .testimonials, 
+#qualidades, .qualidades, #qualidades header,
 #contact .text, #contact .links,
 footer .brand, footer .social
 `,
@@ -129,23 +130,46 @@ if (accordionTitle.length) {
 /*FRASE DO DIA*/
 
 function fraseDoDia() {
-
   const fraseP = document.createElement('p');
   const brandFooter = document.querySelector('.brand');
   brandFooter.appendChild(fraseP);
   fraseP.style.marginTop = '2rem';
+  fraseP.classList.add('br'); // classe para mudar linguagem
 
   async function puxarDados() {
     try {
       const dadosResponse = await fetch('https://api.adviceslip.com/advice');
       const dadosJson = await dadosResponse.json();
-      fraseP.innerHTML = `Frase do dia: ${dadosJson.slip.advice}`
-      console.log(dadosJson)
+      fraseP.innerHTML = `Frase do dia: ${dadosJson.slip.advice}`;
     } catch (erro) {
       console.log(erro);
     }
   }
   puxarDados();
 }
-
 fraseDoDia();
+
+/*MUDAR LINGUAGEM*/
+
+import changeLanguage from './modules/language.js';
+
+const langButton = document.querySelector('.lang');
+
+langButton.addEventListener('click', handleLanguage);
+
+function handleLanguage() {
+  if(document.documentElement.classList.contains('ptBR')){
+    document.documentElement.classList.remove('ptBR');
+    document.documentElement.classList.add('enUS');
+    langButton.innerHTML = 'PT-BR';
+    changeLanguage('enUS');
+  }
+  else if(document.documentElement.classList.contains('enUS')){
+    document.documentElement.classList.remove('enUS');
+    document.documentElement.classList.add('ptBR');
+    langButton.innerHTML = 'EN-US';
+    changeLanguage('ptBR');
+  }
+}
+
+
