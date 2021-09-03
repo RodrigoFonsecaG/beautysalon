@@ -742,6 +742,18 @@ footer .social a:hover {
   }
 }
 
+/*FRASE DO DIA*/
+.daily-quote{
+  margin-top: 2rem;
+  font-style: italic;
+  font-size: 1.125rem;
+}
+
+.daily-quote span {
+  font: 700 2.5rem serif;
+  color: var(--body-color);
+}
+
 /*LANGUAGES*/
 
 html.ptBR body nav ul .lang {
