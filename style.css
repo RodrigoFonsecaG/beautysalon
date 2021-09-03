@@ -459,6 +459,11 @@ nav.show div.icon-close {
   margin-bottom: 2rem;
 }
 
+
+#contact a p.br {
+  margin: 0 auto;
+}
+
 #contact .button i,
 #contact ul li i {
   font-size: 1.5rem;
@@ -469,7 +474,7 @@ nav.show div.icon-close {
   gap: 2rem;
 }
 
-#contact ul li {
+#contact ul li{
   display: flex;
   align-items: center;
 }
@@ -477,6 +482,7 @@ nav.show div.icon-close {
 #contact ul li i {
   color: var(--base-color);
 }
+
 
 /*==================== FOOTER ======================*/
 
