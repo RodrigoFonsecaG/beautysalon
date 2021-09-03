@@ -170,6 +170,10 @@ nav {
   width: 100%;
 }
 
+nav ul {
+  align-items: center;
+}
+
 nav ul li {
   text-align: center;
 }
@@ -459,7 +463,6 @@ nav.show div.icon-close {
   margin-bottom: 2rem;
 }
 
-
 #contact a p.br {
   margin: 0 auto;
 }
@@ -474,7 +477,7 @@ nav.show div.icon-close {
   gap: 2rem;
 }
 
-#contact ul li{
+#contact ul li {
   display: flex;
   align-items: center;
 }
@@ -482,7 +485,6 @@ nav.show div.icon-close {
 #contact ul li i {
   color: var(--base-color);
 }
-
 
 /*==================== FOOTER ======================*/
 
@@ -710,8 +712,6 @@ footer .social a:hover {
   transition: transform 0.3s;
 }
 
-
-
 .qualidade-text {
   display: none;
 }
@@ -739,4 +739,20 @@ footer .social a:hover {
   from {
     transform: rotate(180deg);
   }
+}
+
+/*LANGUAGES*/
+
+html.ptBR body nav ul .lang {
+  content: url('./assets/img/estados-unidos.png');
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+html.enUS body nav ul .lang {
+  content: url('./assets/img/brasil.png');
+  display: inline-block;
+  width: 30px;
+  height: 30px;
 }
