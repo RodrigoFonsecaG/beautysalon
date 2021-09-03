@@ -777,3 +777,26 @@ html body nav ul .lang {
 html body nav ul .lang:hover {
   transform: scale(1.2);
 }
+
+/*FUNCIONAMENTO*/
+
+
+[data-semana]::before{
+  content: '';
+  width: 20px;
+  height: 10px;
+  background: red;
+  display: inline-block;
+  border: 2px solid var(--text-color);
+  margin-right: 10px;
+}
+
+[data-semana].aberto::before{
+  content: '';
+  width: 20px;
+  height: 10px;
+  background: var(--base-color);
+  display: inline-block;
+  border: 2px solid var(--text-color);
+  margin-right: 10px;
+}

@@ -172,3 +172,7 @@ function handleLanguage() {
 }
 
 
+/*HORARIO FUNCIONAMENTO*/ 
+import funcionamento from './modules/funcionamento.js';
+funcionamento();
+
