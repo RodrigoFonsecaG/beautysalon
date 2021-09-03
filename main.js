@@ -133,14 +133,13 @@ function fraseDoDia() {
   const fraseP = document.createElement('p');
   const brandFooter = document.querySelector('.brand');
   brandFooter.appendChild(fraseP);
-  fraseP.style.marginTop = '2rem';
-  fraseP.classList.add('br'); // classe para mudar linguagem
+  fraseP.classList.add('daily-quote');
 
   async function puxarDados() {
     try {
       const dadosResponse = await fetch('https://api.adviceslip.com/advice');
       const dadosJson = await dadosResponse.json();
-      fraseP.innerHTML = `Frase do dia: ${dadosJson.slip.advice}`;
+      fraseP.innerHTML = `<span>&ldquo;</span> ${dadosJson.slip.advice}`;
     } catch (erro) {
       console.log(erro);
     }
