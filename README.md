@@ -8,7 +8,7 @@
   
 O site **BeautySalon** é um projeto de website ensinado na NLW/Together na trilha origin, pelo Mayk Brito. O projeto aborda layout, estrutura html, pack de icons, estilização, reponsividade, animação no JS, entre outros.
 
-Para completar o projeto adicionei algumas funções como: accordion list, frase do dia(utilizando API adviceslip)
+Para completar o projeto adicionei algumas funções como: accordion list, frase do dia(utilizando API adviceslip), mudar a linguagem.
 
 ---------
 ---------
