@@ -19,7 +19,7 @@ Para completar o projeto adicionei algumas funções como:
 ---------
 
 ## 🖥️ Demonstração
-[![BeautySalon](screencapture-rodrigofonsecag-github-io-beautysalon-2021-06-26-18_09_12.png "Clique para acessar o projeto")](https://beautysalon-seven.vercel.app/ "Clique para acessar o projeto")  
+[![BeautySalon](screencapture-127-0-0-1-5500-2021-09-03-22_18_41.png "Clique para acessar o projeto")](https://beautysalon-seven.vercel.app/ "Clique para acessar o projeto")  
 
 
 ## >>**[Clique aqui para acessar a demonstração do website](https://beautysalon-seven.vercel.app/)**<<
