@@ -176,3 +176,6 @@ function handleLanguage() {
 import funcionamento from './modules/funcionamento.js';
 funcionamento();
 
+import changeColor from './modules/color.js';
+changeColor();
+
