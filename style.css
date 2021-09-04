@@ -41,6 +41,8 @@ img {
 
   --title-font: 'Poppins', sans-serif;
   --body-font: 'DM Sans', sans-serif;
+
+  overflow-x: hidden;
 }
 
 /*==================== BASE ======================*/
@@ -686,12 +688,12 @@ footer .social a:hover {
     --subtitle-font-size: 1.125rem;
   }
 
-  .container{
+  .container {
     max-width: 900px;
     margin: 0 auto;
   }
 
-  .section{
+  .section {
     padding: 10rem 0;
   }
 
@@ -703,82 +705,82 @@ footer .social a:hover {
     margin-left: auto;
   }
 
-    /*layout*/
-    main {
-      margin-top: var(--header-height);
-    }
+  /*layout*/
+  main {
+    margin-top: var(--header-height);
+  }
 
-    nav .menu{
-      opacity: 1;
-      visibility: visible;
-      top: 0;
-    }
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
 
-    nav .menu ul {
-      display: flex;
-      gap: 2rem;
-    }
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
 
-    nav .menu ul li a.title {
-      font: 400 1rem var(--body-font);
-      -webkit-font-smoothing: antialiased;
-    }
-  
-    nav .menu ul li a.title.active{
-      font-weight: bold;
-      -webkit-font-smoothing: auto;
-    }
-  
-    nav .icon-menu {
-      display: none;
-    }
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
 
-    /*home*/
+  nav .menu ul li a.title.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  /*home*/
   #home .container {
     grid-auto-flow: column;
     justify-content: space-between;
     margin: 0 auto;
   }
 
-  #home .image{
+  #home .image {
     order: 1;
   }
 
-  #home .text{
+  #home .text {
     max-width: 24rem;
     text-align: left;
   }
 
-  #about .container{
+  #about .container {
     grid-auto-flow: column;
     margin: 0 auto;
   }
 
-  #about .text{
+  #about .text {
     max-width: 24rem;
   }
 
-  #services .cards{
+  #services .cards {
     display: flex;
   }
 
-  #testimonials .container{
+  #testimonials .container {
     margin-right: auto;
     margin-left: auto;
   }
 
-  #contact .container{
+  #contact .container {
     grid-auto-flow: column;
-    align-items:center;
+    align-items: center;
   }
 
-  #contact .text{
+  #contact .text {
     max-width: 24rem;
   }
 
-  footer .container{
+  footer .container {
     grid-auto-flow: column;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -899,7 +901,6 @@ html body nav ul .lang:hover {
   border: 2px solid var(--text-color);
   margin-right: 10px;
 }
-
 
 /*MUDAR COR DO SITE*/
 
