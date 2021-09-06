@@ -42,7 +42,6 @@ img {
   --title-font: 'Poppins', sans-serif;
   --body-font: 'DM Sans', sans-serif;
 
-  overflow-x: hidden;
 }
 
 /*==================== BASE ======================*/
@@ -947,3 +946,4 @@ footer .container .social {
 #slider {
   grid-area: slider;
 }
+
