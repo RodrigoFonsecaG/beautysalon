@@ -951,7 +951,9 @@ footer .container .social {
 
 .numeros-clientes{
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-top: 5rem;
+  flex-direction: column;
 }
 
