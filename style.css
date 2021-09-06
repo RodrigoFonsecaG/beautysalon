@@ -947,3 +947,11 @@ footer .container .social {
   grid-area: slider;
 }
 
+/*NUMERO DE CLIENTES*/
+
+.numeros-clientes{
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+

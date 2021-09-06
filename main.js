@@ -179,3 +179,9 @@ funcionamento();
 import changeColor from './modules/color.js';
 changeColor();
 
+
+
+/*NUMEROS DE CLIENTES*/ 
+import numerosClientes from './modules/clients.js';
+numerosClientes();
+
