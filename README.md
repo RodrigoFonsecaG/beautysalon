@@ -13,6 +13,7 @@ Para completar o projeto adicionei algumas funções como:
 - Frase do dia (utilizando API adviceslip)
 - Mudar a linguagem (pt-BR e en-US)
 - Horário de funcionamento na sessão de contato que muda dependendo do dia/horario
+- Data e horário atual no footer
 - Slider para mudar cor do site
 - Numero ficticio de clientes atuais na sessão de depoimentos
 
