@@ -35,16 +35,35 @@ export default function actualTime() {
       'Quarta-feira',
       'Quinta-feira',
       'Sexta-feira',
-      'Sábado',
+      'Sábado'
     ];
-    
+
     return diaTexto[dia];
   }
 
-  function construirData(){
-    let diaTexto = converterDiaTexto(diaSemana)
+  function formatarTempo(tempo) {
+    return tempo >= 10 ? tempo : `0${tempo}`;
+  }
+
+  function construirData() {
+    let diaTexto = converterDiaTexto(diaSemana);
     let mesTexto = converterMesTexto(mes);
-    actualDate.innerHTML = `${diaTexto}, ${diaMes} de ${mesTexto} de ${ano}<span> ${hora}:${minutos}<span>`
+    if (document.documentElement.classList.contains('ptBR')) {
+      actualDate.innerHTML = `${diaTexto}, ${diaMes} de ${mesTexto} de ${ano}<span> ${formatarTempo(
+        hora
+      )}:${formatarTempo(minutos)}<span>`;
+    }
+    if (document.documentElement.classList.contains('enUS')) {
+      const dataEN = new Intl.DateTimeFormat('en-US', {
+        dateStyle: 'full'
+      }).format(data);
+
+      const horaEN = new Intl.DateTimeFormat('en-US', {
+        timeStyle: 'short'
+      }).format(data);
+
+      actualDate.innerHTML = `${dataEN}<span>${horaEN}</span>`;
+    }
   }
 
   construirData();
