@@ -157,13 +157,12 @@ const langButton = document.querySelector('.lang');
 langButton.addEventListener('click', handleLanguage);
 
 function handleLanguage() {
-  if(document.documentElement.classList.contains('ptBR')){
+  if (document.documentElement.classList.contains('ptBR')) {
     document.documentElement.classList.remove('ptBR');
     document.documentElement.classList.add('enUS');
     langButton.innerHTML = 'PT-BR';
     changeLanguage('enUS');
-  }
-  else if(document.documentElement.classList.contains('enUS')){
+  } else if (document.documentElement.classList.contains('enUS')) {
     document.documentElement.classList.remove('enUS');
     document.documentElement.classList.add('ptBR');
     langButton.innerHTML = 'EN-US';
@@ -171,17 +170,16 @@ function handleLanguage() {
   }
 }
 
-
-/*HORARIO FUNCIONAMENTO*/ 
+/*HORARIO FUNCIONAMENTO*/
 import funcionamento from './modules/funcionamento.js';
 funcionamento();
 
 import changeColor from './modules/color.js';
 changeColor();
 
-
-
-/*NUMEROS DE CLIENTES*/ 
+/*NUMEROS DE CLIENTES*/
 import numerosClientes from './modules/clients.js';
 numerosClientes();
 
+import actualTime from './modules/time.js';
+setInterval(actualTime,1000);
