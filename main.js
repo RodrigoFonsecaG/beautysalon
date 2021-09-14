@@ -182,4 +182,10 @@ import numerosClientes from './modules/clients.js';
 numerosClientes();
 
 import actualTime from './modules/time.js';
-setInterval(actualTime,1000);
+setInterval(actualTime, 1000);
+
+import scheduleModal from './modules/schedule.js';
+scheduleModal();
+
+import scheduleForm from './modules/form.js';
+scheduleForm();

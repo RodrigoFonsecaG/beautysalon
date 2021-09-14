@@ -61,7 +61,9 @@
               Um salão exclusivo em São Paulo, especializado em tratamentos
               naturais.
             </p>
-            <a class="button br" href="#">Agendar um horário</a>
+            <a class="button br button-schedule" href="#">Agendar um horário</a>
+            <p class="user-welcome"></p>
+            <p class="user-locale"></p>
           </div>
         </div>
       </section>
@@ -335,6 +337,27 @@
         </div>
       </div>
     </footer>
+
+    <section class="modal-container" data-modal="container">
+      <div class="modal">
+      <button class="close">X</button>
+      <form id="formulario" name="formularios">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" required/>
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" required/>
+        <label for="telefone">Telefone</label>
+        <input type="text" name="telefone" id="telefone" required/>
+        <label for="cpf">CPF</label>
+        <input type="text" name="cpf" id="cpf" required/>
+        <label for="cep">CEP</label>
+        <input type="text" name="cep" id="cep" required/>
+        <button type="submit" class="button button-submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+
 
     <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
 
