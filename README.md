@@ -16,6 +16,7 @@ Para completar o projeto adicionei algumas funções como:
 - Data e horário atual no footer
 - Slider para mudar cor do site
 - Numero ficticio de clientes atuais na sessão de depoimentos
+- Cadastro de usuario clicando no botão 'agendar horario' e armazendo e mostrando algumas informações na tela
 
 ---------
 ---------
