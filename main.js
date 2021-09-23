@@ -45,16 +45,11 @@ footer .brand, footer .social
   { interval: 100 }
 );
 
-/*Botão voltar para o topo*/
-const backToTopButton = document.querySelector('.back-to-top');
+import backToTop from './modules/back-to-top.js';
+const backToTopButton = new backToTop('.back-to-top')
+backToTopButton.init();
 
-function backToTop() {
-  if (window.scrollY >= 580) {
-    backToTopButton.classList.add('show');
-  } else {
-    backToTopButton.classList.remove('show');
-  }
-}
+
 
 /*menu ativo conforme a sessão visivel na pagina*/
 const sections = document.querySelectorAll('main section[id]');
@@ -83,7 +78,7 @@ function activateMenuAtCurrentSection() {
 }
 
 window.addEventListener('scroll', function () {
-  backToTop();
+
   activateMenuAtCurrentSection();
 });
 
