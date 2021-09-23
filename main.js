@@ -2,19 +2,11 @@ import menuMobile from './modules/menu-mobile.js';
 const menu = new menuMobile('#header nav','nav .toggle','nav ul li a');
 menu.init();
 
-/*Mudar o header da pagina quando der scroll*/
-const header = document.querySelector('#header');
-const navHeight = header.offsetHeight;
+import changeHeader from './modules/change-header.js';
+const headerChange = new changeHeader('#header');
+headerChange.init();
 
-function changeHeaderWhenScroll() {
-  if (window.scrollY >= navHeight) {
-    //scroll é maior que a altura do header
-    header.classList.add('scroll');
-  } else {
-    //menor que a altura do header
-    header.classList.remove('scroll');
-  }
-}
+
 
 /*TESTIMONIALS carrossel swiper slider*/
 
@@ -91,7 +83,6 @@ function activateMenuAtCurrentSection() {
 }
 
 window.addEventListener('scroll', function () {
-  changeHeaderWhenScroll();
   backToTop();
   activateMenuAtCurrentSection();
 });
