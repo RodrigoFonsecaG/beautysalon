@@ -17,6 +17,8 @@ Para completar o projeto adicionei algumas funções como:
 - Slider para mudar cor do site
 - Numero ficticio de clientes atuais na sessão de depoimentos
 - Cadastro de usuario clicando no botão 'agendar horario' e armazendo e mostrando algumas informações na tela
+- Debounce para callbacks de eventos de scroll
+- Refatoração utilizando classes
 
 ---------
 ---------
