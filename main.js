@@ -179,7 +179,8 @@ changeColor();
 
 /*NUMEROS DE CLIENTES*/
 import numerosClientes from './modules/clients.js';
-numerosClientes();
+const numeroClientes = new numerosClientes('.numeros-clientes-text','[data-semana]');
+numeroClientes.init();
 
 import actualTime from './modules/time.js';
 setInterval(actualTime, 1000);
