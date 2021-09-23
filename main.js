@@ -49,38 +49,10 @@ import backToTop from './modules/back-to-top.js';
 const backToTopButton = new backToTop('.back-to-top')
 backToTopButton.init();
 
+import activateMenuAtCurrentSection from './modules/active-menu.js';
+const activeMenu = new activateMenuAtCurrentSection('main section[id]')
+activeMenu.init();
 
-
-/*menu ativo conforme a sessão visivel na pagina*/
-const sections = document.querySelectorAll('main section[id]');
-
-function activateMenuAtCurrentSection() {
-  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4;
-
-  for (const section of sections) {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute('id');
-
-    const checkpointStart = checkpoint >= sectionTop;
-    const checkpointEnd = checkpoint <= sectionTop + sectionHeight;
-
-    if (checkpointStart && checkpointEnd) {
-      document
-        .querySelector('nav ul li a[href*=' + sectionId + ']')
-        .classList.add('active');
-    } else {
-      document
-        .querySelector('nav ul li a[href*=' + sectionId + ']')
-        .classList.remove('active');
-    }
-  }
-}
-
-window.addEventListener('scroll', function () {
-
-  activateMenuAtCurrentSection();
-});
 
 /*Accordion*/
 const accordionTitle = document.querySelectorAll('.qualidade-item');
