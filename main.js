@@ -175,7 +175,8 @@ import funcionamento from './modules/funcionamento.js';
 funcionamento();
 
 import changeColor from './modules/color.js';
-changeColor();
+const colorChange = new changeColor('#slider');
+colorChange.init();
 
 /*NUMEROS DE CLIENTES*/
 import numerosClientes from './modules/clients.js';
