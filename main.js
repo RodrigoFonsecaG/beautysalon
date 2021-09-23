@@ -69,26 +69,13 @@ if (accordionTitle.length) {
     accordionItem.addEventListener('click', activeAccordion);
   });
 }
-/*FRASE DO DIA*/
 
-function fraseDoDia() {
-  const fraseP = document.createElement('p');
-  const brandFooter = document.querySelector('.brand');
-  brandFooter.appendChild(fraseP);
-  fraseP.classList.add('daily-quote');
 
-  async function puxarDados() {
-    try {
-      const dadosResponse = await fetch('https://api.adviceslip.com/advice');
-      const dadosJson = await dadosResponse.json();
-      fraseP.innerHTML = `<span>&ldquo;</span> ${dadosJson.slip.advice}`;
-    } catch (erro) {
-      console.log(erro);
-    }
-  }
-  puxarDados();
-}
-fraseDoDia();
+import dailyQuote from './modules/daily-quote.js';
+const quote = new dailyQuote('https://api.adviceslip.com/advice', '.brand')
+quote.init();
+
+
 
 /*MUDAR LINGUAGEM*/
 
