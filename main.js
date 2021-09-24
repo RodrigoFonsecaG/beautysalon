@@ -83,7 +83,9 @@ const numeroClientes = new numerosClientes('.numeros-clientes-text','[data-seman
 numeroClientes.init();
 
 import actualTime from './modules/time.js';
-setInterval(actualTime, 1000);
+const timer = new actualTime('.actualDate');
+timer.init();
+
 
 import scheduleModal from './modules/schedule.js';
 scheduleModal();
