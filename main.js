@@ -53,22 +53,11 @@ import activateMenuAtCurrentSection from './modules/active-menu.js';
 const activeMenu = new activateMenuAtCurrentSection('main section[id]')
 activeMenu.init();
 
+import accordion from './modules/accordion.js';
+const accordionList = new accordion('.qualidade-item')
+accordionList.init();
 
-/*Accordion*/
-const accordionTitle = document.querySelectorAll('.qualidade-item');
 
-if (accordionTitle.length) {
-  accordionTitle[0].classList.add('ativo');
-  accordionTitle[0].nextElementSibling.classList.add('ativo');
-  function activeAccordion() {
-    this.classList.toggle('ativo');
-    this.nextElementSibling.classList.toggle('ativo');
-  }
-
-  accordionTitle.forEach((accordionItem) => {
-    accordionItem.addEventListener('click', activeAccordion);
-  });
-}
 
 
 import dailyQuote from './modules/daily-quote.js';
