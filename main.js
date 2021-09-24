@@ -58,35 +58,16 @@ const accordionList = new accordion('.qualidade-item')
 accordionList.init();
 
 
-
-
 import dailyQuote from './modules/daily-quote.js';
 const quote = new dailyQuote('https://api.adviceslip.com/advice', '.brand')
 quote.init();
 
 
-
 /*MUDAR LINGUAGEM*/
-
 import changeLanguage from './modules/language.js';
+const language = new changeLanguage('.br', '.lang')
+language.init();
 
-const langButton = document.querySelector('.lang');
-
-langButton.addEventListener('click', handleLanguage);
-
-function handleLanguage() {
-  if (document.documentElement.classList.contains('ptBR')) {
-    document.documentElement.classList.remove('ptBR');
-    document.documentElement.classList.add('enUS');
-    langButton.innerHTML = 'PT-BR';
-    changeLanguage('enUS');
-  } else if (document.documentElement.classList.contains('enUS')) {
-    document.documentElement.classList.remove('enUS');
-    document.documentElement.classList.add('ptBR');
-    langButton.innerHTML = 'EN-US';
-    changeLanguage('ptBR');
-  }
-}
 
 /*HORARIO FUNCIONAMENTO*/
 import funcionamento from './modules/funcionamento.js';
