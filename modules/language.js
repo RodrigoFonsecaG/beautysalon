@@ -1,16 +1,44 @@
-export default function changeLanguage(lang) {
-  let modificableTexts = document.querySelectorAll('.br');
-  modificableTexts = Array.from(modificableTexts);
+export default class changeLanguage {
+  constructor(originalLanguageClass, langButton) {
+    this.modificableTexts = document.querySelectorAll(originalLanguageClass);
+    this.langButton = document.querySelector(langButton);
 
-  async function languageFile(lang) {
+    this.handleLanguage = this.handleLanguage.bind(this);
+  }
+
+  langEvents() {
+    this.langButton.addEventListener('click', this.handleLanguage);
+  }
+
+  handleLanguage() {
+    const html = document.documentElement;
+
+    if (html.classList.contains('ptBR')) {
+      html.classList.remove('ptBR');
+      html.classList.add('enUS');
+      this.languageFile('enUS');
+    } else if (html.classList.contains('enUS')) {
+      html.classList.remove('enUS');
+      html.classList.add('ptBR');
+      this.languageFile('ptBR');
+    }
+  }
+
+  async languageFile(lang) {
+    this.modificableTexts = Array.from(this.modificableTexts);
+
     const languageResponse = await fetch(`../languages/${lang}.json`);
     const languageJSON = await languageResponse.json();
 
     for (let i = 0; i < Object.keys(languageJSON.text).length; i++) {
-      if (document.documentElement.classList.contains(lang)) {
-        modificableTexts[i].innerHTML = languageJSON.text[i];
-      }
+        this.modificableTexts[i].innerHTML = languageJSON.text[i];
     }
   }
-  languageFile(lang);
+
+  init() {
+    if (this.modificableTexts.length && this.langButton) {
+      this.langEvents();
+    }
+    return this;
+  }
 }
