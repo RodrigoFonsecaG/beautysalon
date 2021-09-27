@@ -91,4 +91,5 @@ import scheduleModal from './modules/schedule.js';
 scheduleModal();
 
 import scheduleForm from './modules/form.js';
-scheduleForm();
+const formShedule = new scheduleForm();
+formShedule.init();
