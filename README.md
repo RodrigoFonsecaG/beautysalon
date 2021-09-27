@@ -19,15 +19,16 @@ Para completar o projeto adicionei algumas funções como:
 - Cadastro de usuario clicando no botão 'agendar horario' e armazendo e mostrando algumas informações na tela
 - Debounce para callbacks de eventos de scroll
 - Refatoração utilizando classes
+- Validação de CPF e CEP utilizando regexp
 
 ---------
 ---------
 
 ## 🖥️ Demonstração
-[![BeautySalon](screencapture-127-0-0-1-5500-2021-09-03-22_18_41.png "Clique para acessar o projeto")](https://beautysalon-seven.vercel.app/ "Clique para acessar o projeto")  
+[![BeautySalon](screencapture-127-0-0-1-5500-2021-09-03-22_18_41.png "Clique para acessar o projeto")](https://beautysalon-nine.vercel.app/ "Clique para acessar o projeto")  
 
 
-## >>**[Clique aqui para acessar a demonstração do website](https://beautysalon-seven.vercel.app/)**<<
+## >>**[Clique aqui para acessar a demonstração do website](https://beautysalon-nine.vercel.app/)**<<
 
 
 ----------
