@@ -61,7 +61,7 @@
               Um salão exclusivo em São Paulo, especializado em tratamentos
               naturais.
             </p>
-            <a class="button br button-schedule" href="#">Agendar um horário</a>
+            <a class="button br button-schedule" href="#">Faça seu cadastro</a>
             <p class="user-welcome"></p>
             <p class="user-locale"></p>
           </div>
@@ -347,8 +347,11 @@
         <label for="email">E-mail</label>
         <input type="email" name="email" id="email" required/>
         <label for="telefone">Telefone</label>
-        <input type="text" name="telefone" id="telefone" required/>
-        <label for="cpf">CPF</label>
+        <input type="number" name="telefone" id="telefone" required/>
+        <label for="cpf">
+          <p>CPF</p>
+          <p class="error-message">CPF Inválido</p>
+        </label>
         <input type="text" name="cpf" id="cpf" required/>
         <label for="cep">CEP</label>
         <input type="text" name="cep" id="cep" required/>

@@ -1052,3 +1052,22 @@ color: var(--base-color);
 font-weight: bold;
 }
 
+
+/*Campo invalido no modal*/
+
+.invalido {
+  background-color: rgba(247, 104, 104,0.8) !important;
+}
+
+label[for="cpf"]{
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-message{
+  display: none;
+  color: rgba(247, 104, 104,0.8);
+}
+
+
+

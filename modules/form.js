@@ -1,20 +1,23 @@
-export default function scheduleForm() {
-  const changeLanguageButton = document.querySelector('.lang');
-  const formularioInputs = document.querySelectorAll('#formulario input');
-  const submitButton = document.querySelector('.button-submit');
-  const userWelcome = document.querySelector('.user-welcome');
-  const userLocale = document.querySelector('.user-locale');
+import validarCpf from './cpf.js';
 
-  /*Adiciona evento no botão de mudar linguagem de mostrar mensagem de bem-vindo dependendo da linguagem*/
-  changeLanguageButton.addEventListener('click', mostrarDados);
+export default class scheduleForm {
+  constructor() {
+    this.changeLanguageButton = document.querySelector('.lang');
+    this.formularioInputs = document.querySelectorAll('#formulario input');
+    this.submitButton = document.querySelector('.button-submit');
+    this.userWelcome = document.querySelector('.user-welcome');
+    this.userLocale = document.querySelector('.user-locale');
+    this.scheduleButton = document.querySelector('.button-schedule');
+  }
 
-  submitButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    init();
-  });
+  validarCpf(cpf){
+    const validar = new validarCpf(cpf);
+    const cpfFormatado = validar.cpfFinal();
+    return cpfFormatado;
+  }
 
-  function getDados() {
-    const arrayDados = Array.from(formularioInputs);
+  getDados() {
+    const arrayDados = Array.from(this.formularioInputs);
 
     const dadosArray = arrayDados.map((input) => {
       return input.value;
@@ -22,62 +25,102 @@ export default function scheduleForm() {
 
     const [nome, email, telefone, cpf, cep] = dadosArray;
 
-    if(nome && email && telefone && cpf && cep){
-    return {
-      nome,
-      email,
-      telefone,
-      cpf,
-      cep
+    const cpfFormatado = this.validarCpf(cpf) //valida e formata cpf
+
+    if (nome && email && telefone && cpfFormatado && cep) {
+      return {
+        nome,
+        email,
+        telefone,
+        cpf: cpfFormatado,
+        cep
     }
   }
   }
 
-    /*API DE CEP*/
-    const getCep = async (cep) => {
-      const cepResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-      const cepJSON = await cepResponse.json();
-  
-      const {logradouro, bairro, localidade,uf} = cepJSON;
+  /*API DE CEP*/
+  async getCep(cep) {
+    const cepResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const cepJSON = await cepResponse.json();
 
-      const userLocal = userLocale.innerHTML = `<br>${logradouro}, ${bairro}<br>${localidade}, ${uf}`
+    const { logradouro, bairro, localidade, uf } = cepJSON;
 
-      return userLocal;
-    }
-  
+    const userLocal =
+      (this.userLocale.innerHTML = `<br>${logradouro}, ${bairro}<br>${localidade}, ${uf}`);
 
-  function salvarDados() {
-    const dados = getDados();
-    if (!((dados.nome && dados.email && dados.telefone && dados.cpf && dados.cep) === '')) {
+    return userLocal;
+  }
+
+  salvarDados() {
+    const dados = this.getDados();
+    
+    if (
+      !(
+        (dados.nome &&
+          dados.email &&
+          dados.telefone &&
+          dados.cpf &&
+          dados.cep) === ''
+      )
+    ) {
       const dadosJSON = JSON.stringify(dados);
       localStorage.setItem('dados', dadosJSON);
     }
   }
 
-  function mostrarDados() {
-    const dadosRecuperados = JSON.parse(localStorage.getItem('dados'));
-    const cep = dadosRecuperados.cep;
-    const nomeCompleto = dadosRecuperados.nome.split(' ');
+  mostrarDados() {
+    if (localStorage.getItem('dados')) {
+      const dadosRecuperados = JSON.parse(localStorage.getItem('dados'));
+      const cep = dadosRecuperados.cep;
+      const nomeCompleto = dadosRecuperados.nome.split(' ');
 
-    getCep(cep);
+      this.getCep(cep);
 
-    if (document.documentElement.classList.contains('ptBR')) {
-      userWelcome.innerHTML = `Seja bem-vindo <span>${nomeCompleto[0]}<span>!`;
-    }
+      if (document.documentElement.classList.contains('ptBR')) {
+        this.userWelcome.innerHTML = `Seja bem-vindo <span>${nomeCompleto[0]}<span>!`;
+        localStorage.getItem('dados')
+          ? (this.scheduleButton.innerHTML = 'Agendar um horário')
+          : null;
+      }
 
-    if (document.documentElement.classList.contains('enUS')) {
-      userWelcome.innerHTML = `Welcome <span>${nomeCompleto[0]}<span>!`;
+      if (document.documentElement.classList.contains('enUS')) {
+        this.userWelcome.innerHTML = `Welcome <span>${nomeCompleto[0]}<span>!`;
+        localStorage.getItem('dados')
+          ? (this.scheduleButton.innerHTML = 'Schedule an appointment')
+          : null;
+      }
     }
   }
-  
-  mostrarDados();
 
-  function init() {
-    const dados = getDados();
-    getDados();
-    salvarDados();
-    getCep(dados.cep);
-    mostrarDados();
+  initEvents() {
+    const dados = this.getDados();
+    
+    if(dados){
+    this.getDados();
+    this.salvarDados();
+    this.getCep(dados.cep);
+    this.mostrarDados();
+  }
+  }
+
+  languageButtonEvent() {
+    /*Adiciona evento no botão de mudar linguagem de mostrar mensagem de bem-vindo dependendo da linguagem*/
+    this.changeLanguageButton.addEventListener('click', this.mostrarDados);
+  }
+
+  buttonEvents() {
+    this.submitButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      this.initEvents();
+    });
+  }
+
+  init() {
+    if(this.scheduleButton && this.submitButton){
+    this.mostrarDados();
+    this.buttonEvents();
+    this.languageButtonEvent();
+  }
+  return this;
   }
 }
-
