@@ -47,13 +47,21 @@ export default class scheduleForm {
     const cepResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
     const cepJSON = await cepResponse.json();
 
+    if(cepJSON.erro){
+      cepJSON = undefined; 
+    }
+
+    else{
     const { logradouro, bairro, localidade, uf } = cepJSON;
 
     this.cepInput.classList.remove('invalido'); //remove classe que mostra erro no input
     this.errorMessageCep.style.display = 'none'; //esconde a mensagem de erro no input
 
+
     const userLocal = this.userLocale.innerHTML = `<br>${logradouro}, ${bairro}<br>${localidade}, ${uf}`;
     return userLocal;
+  }
+
   }
   catch(error){
     console.log(error);
