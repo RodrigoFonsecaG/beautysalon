@@ -861,14 +861,14 @@ footer .social a:hover {
 /*LANGUAGES*/
 
 html.ptBR body nav ul .lang {
-  content: url('./assets/img/estados-unidos.png');
+  content: url('/public/assets/img/estados-unidos.png');
   display: inline-block;
   width: 30px;
   height: 30px;
 }
 
 html.enUS body nav ul .lang {
-  content: url('./assets/img/brasil.png');
+  content: url('/public/assets/img/brasil.png');
   display: inline-block;
   width: 30px;
   height: 30px;
