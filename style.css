@@ -1059,7 +1059,7 @@ font-weight: bold;
   background-color: rgba(247, 104, 104,0.8) !important;
 }
 
-label[for="cpf"]{
+label[for="cpf"], label[for="cep"]{
   display: flex;
   justify-content: space-between;
 }
