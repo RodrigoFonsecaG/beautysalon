@@ -25,10 +25,10 @@ Para completar o projeto adicionei algumas funções como:
 ---------
 
 ## 🖥️ Demonstração
-[![BeautySalon](screencapture-127-0-0-1-5500-2021-09-03-22_18_41.png "Clique para acessar o projeto")](https://beautysalon-nine.vercel.app/ "Clique para acessar o projeto")  
+[![BeautySalon](screencapture-127-0-0-1-5500-2021-09-03-22_18_41.png "Clique para acessar o projeto")](https://rodrigofonsecag.github.io/beautysalon/ "Clique para acessar o projeto")  
 
 
-## >>**[Clique aqui para acessar a demonstração do website](https://beautysalon-nine.vercel.app/)**<<
+## >>**[Clique aqui para acessar a demonstração do website](https://rodrigofonsecag.github.io/beautysalon/)**<<
 
 
 ----------
