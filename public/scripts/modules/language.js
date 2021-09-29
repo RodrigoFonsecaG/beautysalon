@@ -27,7 +27,7 @@ export default class changeLanguage {
   async languageFile(lang) {
     this.modificableTexts = Array.from(this.modificableTexts);
 
-    const languageResponse = await fetch(`./public/languages/${lang}.json`);
+    const languageResponse = await fetch(`./languages/${lang}.json`);
     const languageJSON = await languageResponse.json();
 
     for (let i = 0; i < Object.keys(languageJSON.text).length; i++) {
