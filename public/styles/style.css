@@ -1070,4 +1070,27 @@ label[for="cpf"], label[for="cep"]{
 }
 
 
+/*GALERIA*/
+
+.fotos{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex: 0 0 calc(33.33% - 30px);   /* flex-basis adjustment for margin */
+}
+
+.foto-item{
+  margin: 1rem;
+  outline: 1px solid white;
+  outline-offset: -4px;
+  border: 1px solid var(--base-color);
+  line-height: 0;
+  filter: grayscale(100%);
+}
+
+.foto-item.ativo{
+  filter: 0;
+}
+
+
 
