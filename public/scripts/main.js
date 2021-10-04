@@ -93,3 +93,8 @@ scheduleModal();
 import scheduleForm from './modules/form.js';
 const formShedule = new scheduleForm();
 formShedule.init();
+
+
+import Tooltip from './modules/tooltip.js';
+const filter = new Tooltip('[data-tooltip]');
+filter.init();
