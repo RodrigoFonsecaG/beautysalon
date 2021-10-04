@@ -1048,49 +1048,70 @@ footer .container .social {
 }
 
 .user-welcome span {
-color: var(--base-color);
-font-weight: bold;
+  color: var(--base-color);
+  font-weight: bold;
 }
-
 
 /*Campo invalido no modal*/
 
 .invalido {
-  background-color: rgba(247, 104, 104,0.8) !important;
+  background-color: rgba(247, 104, 104, 0.8) !important;
 }
 
-label[for="cpf"], label[for="cep"]{
+label[for='cpf'],
+label[for='cep'] {
   display: flex;
   justify-content: space-between;
 }
 
-.error-message{
+.error-message {
   display: none;
-  color: rgba(247, 104, 104,0.8);
+  color: rgba(247, 104, 104, 0.8);
 }
-
 
 /*GALERIA*/
 
-.fotos{
+.fotos {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  flex: 0 0 calc(33.33% - 30px);   /* flex-basis adjustment for margin */
+  flex: 0 0 calc(33.33% - 30px); /* flex-basis adjustment for margin */
+}
+
+.foto-item {
+  color: white;
+  filter: grayscale(100%);
+  transition: 0.3s;
+  cursor: pointer;
+  line-height: 0;
 }
 
 .foto-item{
+  max-width: 400px;
+  max-height: 300px;
   margin: 1rem;
-  outline: 1px solid white;
-  outline-offset: -4px;
-  border: 1px solid var(--base-color);
-  line-height: 0;
-  filter: grayscale(100%);
-}
-
-.foto-item.ativo{
-  filter: 0;
 }
 
 
 
+
+
+
+.foto-item:hover {
+  filter: grayscale(0);
+}
+
+/*TOOLTIP*/
+
+.tooltip {
+  position: absolute;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  color: white;
+  border: 2px solid var(--base-color);
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.875rem;
+  max-width: 170px;
+}
