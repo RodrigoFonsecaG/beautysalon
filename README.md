@@ -20,6 +20,7 @@ Para completar o projeto adicionei algumas funções como:
 - Debounce para callbacks de eventos de scroll
 - Refatoração utilizando classes
 - Validação de CPF e CEP utilizando regexp
+- Tooltip
 
 ---------
 ---------
