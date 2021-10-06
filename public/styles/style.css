@@ -1069,6 +1069,12 @@ label[for='cep'] {
   color: rgba(247, 104, 104, 0.8);
 }
 
+/*BOTAO DE MARCAR UM HORARIO*/
+
+.make-an-appointment{
+  display: none;
+}
+
 /*GALERIA*/
 
 .fotos {
