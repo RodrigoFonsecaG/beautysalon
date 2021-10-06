@@ -10,7 +10,7 @@ export default class scheduleForm {
     this.scheduleButton = document.querySelector('.button-schedule');
     this.cepInput = document.querySelector('#cep')
     this.errorMessageCep = document.querySelectorAll('.error-message')[1]
-
+    this.buttonMakeAppointment = document.querySelector('.make-an-appointment');
   }
 
   validarCpf(cpf) {
@@ -48,7 +48,7 @@ export default class scheduleForm {
     const cepJSON = await cepResponse.json();
 
     if(cepJSON.erro){
-      cepJSON = undefined; 
+      cepJSON = undefined;
     }
 
     else{
@@ -95,21 +95,22 @@ export default class scheduleForm {
 
       this.getCep(cep);
 
+      /*Mudar o botão*/ 
+      if(localStorage.getItem('dados')){
+        this.scheduleButton.style.display = 'none';
+        this.buttonMakeAppointment.style.display = 'inline-flex';
+    }
+
       if (document.documentElement.classList.contains('ptBR')) {
         this.userWelcome.innerHTML = `Seja bem-vindo <span>${primeiroNome[0]}<span>!`;
-        localStorage.getItem('dados')
-          ? (this.scheduleButton.innerHTML = 'Agendar um horário')
-          : null;
       }
 
       if (document.documentElement.classList.contains('enUS')) {
         this.userWelcome.innerHTML = `Welcome <span>${primeiroNome[0]}<span>!`;
-        localStorage.getItem('dados')
-          ? (this.scheduleButton.innerHTML = 'Schedule an appointment')
-          : null;
       }
     }
   }
+
 
   initEvents() {
     const dados = this.getDados();
