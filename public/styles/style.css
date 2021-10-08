@@ -72,6 +72,7 @@ body {
   border-radius: 0.25rem;
   font: 500 1rem var(--body-font);
   transition: background 0.3s;
+  border: none;
 }
 
 .button:hover {
@@ -678,6 +679,7 @@ footer .social a:hover {
   footer .logo {
     font-size: 2.25rem;
   }
+
 }
 
 @media (min-width: 950px) {
@@ -1069,12 +1071,6 @@ label[for='cep'] {
   color: rgba(247, 104, 104, 0.8);
 }
 
-/*BOTAO DE MARCAR UM HORARIO*/
-
-.make-an-appointment{
-  display: none;
-}
-
 /*GALERIA*/
 
 .fotos {
@@ -1092,16 +1088,11 @@ label[for='cep'] {
   line-height: 0;
 }
 
-.foto-item{
+.foto-item {
   max-width: 400px;
   max-height: 300px;
   margin: 1rem;
 }
-
-
-
-
-
 
 .foto-item:hover {
   filter: grayscale(0);
@@ -1121,3 +1112,140 @@ label[for='cep'] {
   font-size: 0.875rem;
   max-width: 170px;
 }
+
+/*BOTAO DE MARCAR UM HORARIO*/
+
+.make-an-appointment {
+  display: none;
+}
+
+/*PAGINA DE MARCAR HORARIO*/
+.logo-page-make-an-appointment {
+  font: 700 1.31rem var(--title-font);
+  color: var(--title-color);
+  margin: 0 auto;
+}
+
+.logo-page-make-an-appointment span {
+  color: var(--base-color);
+}
+
+#make-an-appointment {
+  background: var(--base-color);
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+#make-an-appointment .content {
+  margin: 0 5rem 0 5rem;
+  overflow: hidden;
+}
+
+#make-an-appointment .container {
+  background: var(--body-color);
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#make-an-appointment .container h1 {
+  color: var(--base-color);
+  text-align: center;
+  margin: 5rem;
+}
+
+#make-an-appointment .container h2 {
+  color: var(--base-color);
+  font-size: 1.5rem;
+}
+
+#make-an-appointment form {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  border: 0;
+}
+
+#make-an-appointment .fieldset-dados {
+  margin-bottom: 5rem;
+}
+
+#make-an-appointment .field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+#make-an-appointment .field-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#make-an-appointment .field-group .field:nth-of-type(odd) {
+  margin-right: 1rem;
+}
+
+#make-an-appointment label {
+  font-family: var(--title-font);
+}
+
+#make-an-appointment input,
+#make-an-appointment select {
+  border: none;
+  background: var(--base-color);
+  color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 670px){
+  #make-an-appointment .field-group .field:nth-of-type(odd){
+    margin-right: 0;
+    }
+}
+
+
+
+
+
+
+#make-an-appointment .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#make-an-appointment .cards .card {
+  width: 220px;
+  height: 250px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+#make-an-appointment .cards p {
+  padding: 0;
+}
+
+#make-an-appointment .cards .card-text {
+  font-family: var(--title-font);
+  font-weight: bold;
+  color: var(--base-color);
+  text-align: center;
+}
+
+#make-an-appointment .cards .card-price {
+  font-family: var(--body-font);
+  color: var(--text-color);
+}
+
+.button-make-an-appointment {
+  margin: 2rem auto 3rem auto;
+}
+
+

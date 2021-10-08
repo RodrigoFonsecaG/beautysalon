@@ -25,6 +25,7 @@ const swiper = new Swiper('.swiper', {
   }
 });
 
+
 /*SCROLL REVEAL: Mostrar elementos quando der scroll na pagina*/
 
 const scrollReveal = ScrollReveal({
