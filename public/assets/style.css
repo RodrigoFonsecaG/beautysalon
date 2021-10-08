@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?kv67dx');
-  src:  url('fonts/icomoon.eot?kv67dx#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?kv67dx') format('truetype'),
-    url('fonts/icomoon.woff?kv67dx') format('woff'),
-    url('fonts/icomoon.svg?kv67dx#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?fnobgq');
+  src:  url('fonts/icomoon.eot?fnobgq#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?fnobgq') format('truetype'),
+    url('fonts/icomoon.woff?fnobgq') format('woff'),
+    url('fonts/icomoon.svg?fnobgq#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-dye:before {
+  content: "\e90d";
+}
+.icon-manicure:before {
+  content: "\e90e";
+}
+.icon-depilation:before {
+  content: "\e90f";
+}
+.icon-makeup:before {
+  content: "\e910";
+}
+.icon-skincare:before {
+  content: "\e911";
+}
+.icon-eyebrow:before {
+  content: "\e912";
+}
 .icon-arrow-up:before {
   content: "\e90c";
 }
