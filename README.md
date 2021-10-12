@@ -21,6 +21,7 @@ Para completar o projeto adicionei algumas funções como:
 - Refatoração utilizando classes
 - Validação de CPF e CEP utilizando regexp
 - Tooltip
+- Formulario para agendamento de horarios utilizando banco de dados (em progresso)
 
 ---------
 ---------
