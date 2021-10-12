@@ -7,6 +7,8 @@ export default class Appointment {
     this.hideItemsInput = document.querySelector('input[name="items"]')
     this.hideStateInput = document.querySelector('input[name="state"]')
     this.selectedItems = [];
+
+    console.log('teste')
     
 
     this.populateCities = this.populateCities.bind(this);
