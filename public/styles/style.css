@@ -1248,4 +1248,8 @@ fieldset {
   margin: 2rem auto 3rem auto;
 }
 
+#make-an-appointment .card.selected{
+  background: var(--base-color-second);
+}
+
 

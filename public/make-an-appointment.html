@@ -32,6 +32,10 @@
                                     <label for="name">Nome</label>
                                     <input type="text" name="name">
                                 </div>
+                                <div class="field">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email">
+                                </div>
                                 <div class="field-group">
                                     <div class="field">
                                         <label for="address">Endereço</label>
@@ -47,6 +51,7 @@
                                         <label for="state">Estado</label>
                                         <select name="uf">
                                             <option value>Selecione o estado</option>
+                                            <input type="hidden" name="state">
                                         </select>
                                     </div>
                                     <div class="field">
@@ -106,6 +111,7 @@
                                         <p class="card-price">R$100,00</p>
                                     </div>
                                 </div>
+                                <input type="hidden" name="items">
                             </fieldset>
                             <button type="submit" class="button button-make-an-appointment">Enviar</button>
                         </form>
@@ -113,5 +119,6 @@
                 </div>
             </section>
         </main>
+        <script type="module" src="./scripts/make-an-appointment.js"></script>
     </body>
 </html>
