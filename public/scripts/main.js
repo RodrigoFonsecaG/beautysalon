@@ -99,3 +99,6 @@ formShedule.init();
 import Tooltip from './modules/tooltip.js';
 const filter = new Tooltip('[data-tooltip]');
 filter.init();
+
+import deleteLocalStorage from './modules/delete-data.js';
+deleteLocalStorage();
