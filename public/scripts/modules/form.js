@@ -19,6 +19,34 @@ export default class scheduleForm {
     return cpfFormatado;
   }
 
+
+  /*API DE CEP*/
+  async getCep(cep) {
+    
+    try{
+    if(localStorage.getItem('dados')){
+    const cepResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const cepJSON = await cepResponse.json();
+
+    const { logradouro, bairro, localidade, uf } = cepJSON;
+
+    this.cepInput.classList.remove('invalido'); //remove classe que mostra erro no input
+    this.errorMessageCep.style.display = 'none'; //esconde a mensagem de erro no input
+
+
+    this.userLocale.innerHTML = `<br>${logradouro}, ${bairro}<br>${localidade}, ${uf}`;
+  }
+}
+  catch(error){
+    console.log(error);
+    this.cepInput.classList.add('invalido');
+    this.errorMessageCep.style.display = 'flex';
+    this.userLocale.innerHTML = '';
+
+  }
+
+  }
+
   getDados() {
     const arrayDados = Array.from(this.formularioInputs);
 
@@ -27,10 +55,14 @@ export default class scheduleForm {
     });
 
     const [nome, email, telefone, cpf, cep] = dadosArray;
+    
 
     const cpfFormatado = this.validarCpf(cpf); //valida e formata cpf
 
-    if (nome && email && telefone && cpfFormatado && cep) {
+    const cepValidado = this.getCep(cep);
+    console.log(cepValidado)
+
+    if (cpfFormatado && cep) {
       return {
         nome,
         email,
@@ -39,35 +71,6 @@ export default class scheduleForm {
         cep
       };
     }
-  }
-
-  /*API DE CEP*/
-  async getCep(cep) {
-    try{
-    const cepResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const cepJSON = await cepResponse.json();
-
-    if(cepJSON.erro){
-      cepJSON = undefined;
-    }
-
-    else{
-    const { logradouro, bairro, localidade, uf } = cepJSON;
-
-    this.cepInput.classList.remove('invalido'); //remove classe que mostra erro no input
-    this.errorMessageCep.style.display = 'none'; //esconde a mensagem de erro no input
-
-
-    const userLocal = this.userLocale.innerHTML = `<br>${logradouro}, ${bairro}<br>${localidade}, ${uf}`;
-    return userLocal;
-  }
-
-  }
-  catch(error){
-    console.log(error);
-    this.cepInput.classList.add('invalido');
-    this.errorMessageCep.style.display = 'flex';
-  }
   }
 
   salvarDados() {
@@ -99,7 +102,8 @@ export default class scheduleForm {
       if(localStorage.getItem('dados')){
         this.scheduleButton.style.display = 'none';
         this.buttonMakeAppointment.style.display = 'inline-flex';
-    }
+        
+    
 
       if (document.documentElement.classList.contains('ptBR')) {
         this.userWelcome.innerHTML = `Seja bem-vindo <span>${primeiroNome[0]}<span>!`;
@@ -108,6 +112,7 @@ export default class scheduleForm {
       if (document.documentElement.classList.contains('enUS')) {
         this.userWelcome.innerHTML = `Welcome <span>${primeiroNome[0]}<span>!`;
       }
+    }
     }
   }
 
@@ -120,6 +125,7 @@ export default class scheduleForm {
       this.salvarDados();
       this.getCep(dados.cep);
       this.mostrarDados();
+      location.reload();
     }
   }
 
