@@ -12,7 +12,12 @@ export default function funcionamento() {
 
     if(semanaAberto && horarioAberto){
         funcionamento.classList.add('aberto');
+        return true;
     }
+    else{
+      return false;
+    }
+
 
   
 }
