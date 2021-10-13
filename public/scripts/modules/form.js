@@ -11,6 +11,7 @@ export default class scheduleForm {
     this.cepInput = document.querySelector('#cep');
     this.errorMessageCep = document.querySelectorAll('.error-message')[1];
     this.buttonMakeAppointment = document.querySelector('.make-an-appointment');
+    this.image = document.querySelector('input[name="image"]');
 
     this.mostrarDados = this.mostrarDados.bind(this);
   }
@@ -45,6 +46,22 @@ export default class scheduleForm {
     }
   }
 
+  userImage(){
+    this.image.addEventListener('change', function(){
+      // como vamos salvar a imagem no localStorage e ele só aceita strings 
+      // temos que converter a imagem para DataURL, que é uma url com as informações da imagem
+      // para isso vamos usar o objeto FileReader
+          const reader = new FileReader();
+
+          reader.addEventListener('load', () => {
+            
+            localStorage.setItem('image', reader.result); 
+          })  
+          reader.readAsDataURL(this.files[0]);
+        
+    })
+  }
+
   getDados() {
     const arrayDados = Array.from(this.formularioInputs);
 
@@ -52,11 +69,12 @@ export default class scheduleForm {
       return input.value;
     });
 
-    const [nome, email, telefone, cpf, cep] = dadosArray;
+    const [nome, email, telefone, cpf, cep, image] = dadosArray;
 
     const cpfFormatado = this.validarCpf(cpf); //valida e formata cpf
 
-
+    const imageDataURL = localStorage.getItem('image');
+  
 
     if (cpfFormatado &&  cep) {
       return {
@@ -64,7 +82,8 @@ export default class scheduleForm {
         email,
         telefone,
         cpf: cpfFormatado,
-        cep
+        cep,
+        image: imageDataURL
       };
     }
   }
@@ -80,9 +99,11 @@ export default class scheduleForm {
           dados.cpf &&
           dados.cep) === ''
       )
-    ) {
+) {
       const dadosJSON = JSON.stringify(dados);
       localStorage.setItem('dados', dadosJSON);
+
+      localStorage.removeItem('image');
     }
   }
 
@@ -94,10 +115,12 @@ export default class scheduleForm {
 
       this.getCep(cep);
 
+
       /*Mudar o botão*/
       if (localStorage.getItem('dados')) {
         this.scheduleButton.style.display = 'none';
         this.buttonMakeAppointment.style.display = 'inline-flex';
+
 
         if (document.documentElement.classList.contains('ptBR')) {
           this.userWelcome.innerHTML = `Seja bem-vindo <span>${primeiroNome[0]}<span>!`;
@@ -108,6 +131,20 @@ export default class scheduleForm {
         }
       }
     }
+  }
+
+  mostrarFoto(){
+    if(localStorage.getItem('dados')){
+    const image = JSON.parse(localStorage.getItem('dados')).image;
+
+    if(image){
+      const imgTag = document.createElement('img');
+      imgTag.setAttribute('src', image)
+      imgTag.classList.add('user-image')
+      const nav = document.querySelector('.menu .grid');
+      nav.appendChild(imgTag);
+    }
+  }
   }
 
   initEvents() {
@@ -136,8 +173,10 @@ export default class scheduleForm {
   init() {
     if (this.scheduleButton && this.submitButton) {
       this.mostrarDados();
+      this.mostrarFoto();
       this.buttonEvents();
       this.languageButtonEvent();
+      this.userImage();
     }
     return this;
   }

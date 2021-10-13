@@ -1076,6 +1076,42 @@ label[for='cep'] {
   color: rgba(247, 104, 104, 0.8);
 }
 
+label[for='image']{
+display: flex;
+justify-content: space-between;
+}
+
+input[type=file]{
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+input[type=file]::file-selector-button{
+  background: var(--base-color);
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem;
+  font-family: var(--body-font);
+  cursor: pointer;
+
+}
+
+.button-submit{
+  cursor: pointer;
+}
+
+/*Imagem usuario*/
+.user-image{
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  margin: 0;
+  object-fit: cover;
+}
+
 /*GALERIA*/
 
 .fotos {
