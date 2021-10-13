@@ -8,9 +8,11 @@ export default class scheduleForm {
     this.userWelcome = document.querySelector('.user-welcome');
     this.userLocale = document.querySelector('.user-locale');
     this.scheduleButton = document.querySelector('.button-schedule');
-    this.cepInput = document.querySelector('#cep')
-    this.errorMessageCep = document.querySelectorAll('.error-message')[1]
+    this.cepInput = document.querySelector('#cep');
+    this.errorMessageCep = document.querySelectorAll('.error-message')[1];
     this.buttonMakeAppointment = document.querySelector('.make-an-appointment');
+
+    this.mostrarDados = this.mostrarDados.bind(this);
   }
 
   validarCpf(cpf) {
@@ -19,32 +21,28 @@ export default class scheduleForm {
     return cpfFormatado;
   }
 
-
   /*API DE CEP*/
   async getCep(cep) {
-    
-    try{
-    if(localStorage.getItem('dados')){
-    const cepResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const cepJSON = await cepResponse.json();
+    try {
+      const cepResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const cepJSON = await cepResponse.json();
 
-    const { logradouro, bairro, localidade, uf } = cepJSON;
+      const { logradouro, bairro, localidade, uf } = cepJSON;
 
-    this.cepInput.classList.remove('invalido'); //remove classe que mostra erro no input
-    this.errorMessageCep.style.display = 'none'; //esconde a mensagem de erro no input
+      this.cepInput.classList.remove('invalido'); //remove classe que mostra erro no input
+      this.errorMessageCep.style.display = 'none'; //esconde a mensagem de erro no input
 
+      this.userLocale.innerHTML = `<br>${logradouro}, ${bairro}<br>${localidade}, ${uf}`;
 
-    this.userLocale.innerHTML = `<br>${logradouro}, ${bairro}<br>${localidade}, ${uf}`;
-  }
-}
-  catch(error){
-    console.log(error);
-    this.cepInput.classList.add('invalido');
-    this.errorMessageCep.style.display = 'flex';
-    this.userLocale.innerHTML = '';
+      return cep;
+    } catch (error) {
+      console.log(error);
+      this.cepInput.classList.add('invalido');
+      this.errorMessageCep.style.display = 'flex';
+      this.userLocale.innerHTML = '';
 
-  }
-
+      throw error;
+    }
   }
 
   getDados() {
@@ -55,14 +53,12 @@ export default class scheduleForm {
     });
 
     const [nome, email, telefone, cpf, cep] = dadosArray;
-    
 
     const cpfFormatado = this.validarCpf(cpf); //valida e formata cpf
 
-    const cepValidado = this.getCep(cep);
-    console.log(cepValidado)
 
-    if (cpfFormatado && cep) {
+
+    if (cpfFormatado &&  cep) {
       return {
         nome,
         email,
@@ -98,33 +94,29 @@ export default class scheduleForm {
 
       this.getCep(cep);
 
-      /*Mudar o botão*/ 
-      if(localStorage.getItem('dados')){
+      /*Mudar o botão*/
+      if (localStorage.getItem('dados')) {
         this.scheduleButton.style.display = 'none';
         this.buttonMakeAppointment.style.display = 'inline-flex';
-        
-    
 
-      if (document.documentElement.classList.contains('ptBR')) {
-        this.userWelcome.innerHTML = `Seja bem-vindo <span>${primeiroNome[0]}<span>!`;
-      }
+        if (document.documentElement.classList.contains('ptBR')) {
+          this.userWelcome.innerHTML = `Seja bem-vindo <span>${primeiroNome[0]}<span>!`;
+        }
 
-      if (document.documentElement.classList.contains('enUS')) {
-        this.userWelcome.innerHTML = `Welcome <span>${primeiroNome[0]}<span>!`;
+        if (document.documentElement.classList.contains('enUS')) {
+          this.userWelcome.innerHTML = `Welcome <span>${primeiroNome[0]}<span>!`;
+        }
       }
-    }
     }
   }
-
 
   initEvents() {
     const dados = this.getDados();
 
     if (dados) {
       this.getDados();
-      this.salvarDados();
       this.getCep(dados.cep);
-      this.mostrarDados();
+      this.salvarDados();
       location.reload();
     }
   }
