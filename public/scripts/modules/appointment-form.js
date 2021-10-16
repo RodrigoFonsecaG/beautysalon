@@ -4,10 +4,10 @@ export default class Appointment {
     this.stateSelect = document.querySelector(stateSelect);
     this.citySelect = document.querySelector(citySelect);
     this.btnSubmit = document.querySelector('.button-make-an-appointment');
-    this.hideItemsInput = document.querySelector('input[name="items"]')
-    this.hideStateInput = document.querySelector('input[name="state"]')
+    this.hideItemsInput = document.querySelector('input[name="items"]');
+    this.hideStateInput = document.querySelector('input[name="state"]');
     this.selectedItems = [];
-    
+    this.cardsPrice = document.querySelectorAll('.card-price');
 
     this.populateCities = this.populateCities.bind(this);
   }
@@ -24,8 +24,6 @@ export default class Appointment {
   }
 
   async populateStates() {
-
-
     const res = await fetch(
       'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
     );
@@ -34,26 +32,25 @@ export default class Appointment {
     states.forEach((state) => {
       this.stateSelect.innerHTML += `<option value=${state.id}>${state.nome}</option>`;
     });
-
-    
   }
 
   async populateCities(event) {
     const stateId = event.target.value;
 
-    const indexOfSelectedState = event.target.selectedIndex; 
+    const indexOfSelectedState = event.target.selectedIndex;
     this.hideStateInput.value = event.target.options[indexOfSelectedState].text;
 
-
-    this.citySelect.innerHTML = `<option value>Selecione a cidade</option>`
+    this.citySelect.innerHTML = `<option value>Selecione a cidade</option>`;
     this.citySelect.disabled = true;
 
-    const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateId}/municipios`);
+    const res = await fetch(
+      `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateId}/municipios`
+    );
     const cities = await res.json();
 
-    cities.forEach(city => {
-      this.citySelect.innerHTML += `<option value=${city.nome}>${city.nome}</option>`
-    })
+    cities.forEach((city) => {
+      this.citySelect.innerHTML += `<option value=${city.nome}>${city.nome}</option>`;
+    });
 
     this.citySelect.removeAttribute('disabled');
   }
@@ -71,34 +68,62 @@ export default class Appointment {
   handleSelectedCard(event) {
     const item = event.currentTarget;
     item.classList.toggle('selected');
-
   }
 
-  submitEvents(){
+  servicesPriceArray() {
+    const arrayPrice = [];
+
+    this.cardsPrice.forEach((card) => {
+      const price = +card.innerHTML.replace('R$', '').replace(',', '.');
+
+      arrayPrice.push(price);
+    });
+
+    return arrayPrice;
+  }
+
+  sumServicesPrice() {
+    const prices = this.servicesPriceArray();
+    const priceDiv = document.querySelector('.price')
+    let sumPrices = 0;
+
+    this.cards.forEach((card, index) => {
+      card.addEventListener('click', (event) => {
+
+        if (card.classList.contains('selected')) {
+ 
+          sumPrices += prices[index]; 
+        } else {
+          sumPrices -= prices[index];
+        }
+        priceDiv.innerHTML = 'Total: ' + sumPrices.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+      });
+    });
+  }
+
+  submitEvents() {
     this.btnSubmit.addEventListener('click', (e) => {
       // Salva no input escondido as planos selecionados pelo usuario no momento que ele aperta
       // o botao de enviar
-      for(let card of this.cards){
-
+      for (let card of this.cards) {
         let cardName = card.querySelector('.card-text').innerText;
 
-        if(card.classList.contains('selected')){
-          this.selectedItems.push(cardName)
+        if (card.classList.contains('selected')) {
+          this.selectedItems.push(cardName);
         }
       }
       this.hideItemsInput.value = this.selectedItems;
-    })
-    
-    
+    });
   }
 
   init() {
-    if(this.cards.length && this.stateSelect){
-    this.cardSelected();
-    this.showUserData();
-    this.populateStates();
-    this.enableCities();
-    this.submitEvents();
-  }
+    if (this.cards.length && this.stateSelect) {
+      this.cardSelected();
+      this.showUserData();
+      this.populateStates();
+      this.enableCities();
+      this.sumServicesPrice();
+      this.submitEvents();
+    }
   }
 }

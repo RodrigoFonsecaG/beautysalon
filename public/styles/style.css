@@ -1349,6 +1349,15 @@ fieldset {
   content: none;
 }
 
+#make-an-appointment .price{
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  color: var(--base-color);
+  font-weight: bold;
+  
+}
+
+
 @media (max-width: 768px){
   #make-an-appointment .content {
     margin: 0 2rem 0 2rem;
