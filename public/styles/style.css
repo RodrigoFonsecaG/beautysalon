@@ -1376,5 +1376,35 @@ fieldset {
   }
 }
 
+@media (max-width: 584px){
+  #make-an-appointment .card{
+    padding: 0;
+  }
+  #make-an-appointment .cards .card {
+    width: 140px;
+    height: 170px;
+  }
+
+  #make-an-appointment .cards .card:last-child{
+    margin-right: 0;
+  }
+
+  #make-an-appointment .cards .card-text {
+    font-size: 0.9rem;
+  }
+  
+  #make-an-appointment .cards .card-price {
+    font-size: 0.7rem;
+  }
+
+  #make-an-appointment .cards i{
+    margin-bottom: 1rem;
+  }
+
+  #make-an-appointment .cards i::before{
+    font-size: 3rem;
+  }
+}
+
 
 
