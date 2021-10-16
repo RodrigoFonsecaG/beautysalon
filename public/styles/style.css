@@ -1229,7 +1229,7 @@ margin-top: 3rem;
 #make-an-appointment .container h1 {
   color: var(--base-color);
   text-align: center;
-  margin: 5rem;
+  margin: 5rem 0;
 }
 
 #make-an-appointment .container h2 {
@@ -1347,6 +1347,24 @@ fieldset {
 
 #make-an-appointment li[data-semana]::before{
   content: none;
+}
+
+@media (max-width: 768px){
+  #make-an-appointment .content {
+    margin: 0 2rem 0 2rem;
+  }
+
+  #make-an-appointment .container h1 {
+    color: var(--base-color);
+    text-align: center;
+    margin: 5rem;
+  }
+
+  #make-an-appointment .container h1 {
+    color: var(--base-color);
+    text-align: center;
+    margin: 5rem 0;
+  }
 }
 
 
