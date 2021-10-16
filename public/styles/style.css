@@ -1381,8 +1381,8 @@ fieldset {
     padding: 0;
   }
   #make-an-appointment .cards .card {
-    width: 140px;
-    height: 170px;
+    width: 120px;
+    height: 150px;
   }
 
   #make-an-appointment .cards .card:last-child{
