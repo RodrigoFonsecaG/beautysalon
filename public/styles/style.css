@@ -1331,24 +1331,6 @@ fieldset {
   background: var(--base-color-second);
 }
 
-#make-an-appointment li[data-semana]{
-  margin-top: 5rem;
-  list-style: none;
-  background: var(--base-color);
-  font-size: 1.5rem;
-  color: var(--text-color-light);
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 2rem;
-  text-align: center;
-
-  display: none;
-}
-
-#make-an-appointment li[data-semana]::before{
-  content: none;
-}
-
 #make-an-appointment .price{
   margin: 1rem auto;
   font-size: 1.5rem;
