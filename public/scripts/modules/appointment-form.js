@@ -83,6 +83,7 @@ export default class Appointment {
   }
 
   sumServicesPrice() {
+    const inputPrices = document.querySelector('input[name="total"]');
     const prices = this.servicesPriceArray();
     const priceDiv = document.querySelector('.price')
     let sumPrices = 0;
@@ -97,6 +98,7 @@ export default class Appointment {
           sumPrices -= prices[index];
         }
         priceDiv.innerHTML = 'Total: ' + sumPrices.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        inputPrices.value = sumPrices;
       });
     });
   }
