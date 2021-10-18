@@ -1,127 +1,124 @@
-<!DOCTYPE html>
-<html lang="pt_BR" class="ptBR">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>OriginSix</title>
-        <!--Icons-->
-        <link
-        rel="stylesheet" href="assets/style.css"/>
-        <!--Style-->
-        <link
-        rel="stylesheet" href="styles/style.css"/>
-        <!--Fontes-->
-        <link rel="preconnect" href="https://fonts.gstatic.com"/>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
-    </head>
-    <body>
-        <header id="header">
-            <nav class="container">
-                <a class="logo-page-make-an-appointment" href="/">beauty<span>salon</span>.</a>
-            </nav>
-        </header>
-        <main>
-            <section class="section" id="make-an-appointment">
-                <div class="container grid">
-                    <div class="content">
+{% extends "layout.html" %}
 
-                        <form action="">
-                            <h1 class="title">Agende um horário:</h1>
-                            <fieldset class="fieldset-dados">
-                                <h2 class="title">Dados do cliente:</h2>
+{% block title %}
+    <title>Agendamento</title>
+{% endblock title %}
+
+{% block header %}
+    <header id="header">
+        <nav class="container">
+            <a class="logo-page-make-an-appointment" href="/">beauty<span>salon</span>.</a>
+        </nav>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <main>
+        <section class="section" id="make-an-appointment">
+            <div class="container grid">
+                <div class="content">
+                    <form action="">
+                        <h1 class="title">Agende um horário:</h1>
+                        <fieldset class="fieldset-dados">
+                            <h2 class="title">Dados do cliente:</h2>
+                            <div class="field">
+                                <label for="name">Nome</label>
+                                <input type="text" name="name">
+                            </div>
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <input type="text" name="email">
+                            </div>
+                            <div class="field-group">
                                 <div class="field">
-                                    <label for="name">Nome</label>
-                                    <input type="text" name="name">
+                                    <label for="address">Endereço</label>
+                                    <input type="text" name="address">
                                 </div>
                                 <div class="field">
-                                    <label for="email">Email</label>
-                                    <input type="text" name="email">
+                                    <label for="address">Número</label>
+                                    <input type="text" name="address">
                                 </div>
-                                <div class="field-group">
-                                    <div class="field">
-                                        <label for="address">Endereço</label>
-                                        <input type="text" name="address">
-                                    </div>
-                                    <div class="field">
-                                        <label for="address">Número</label>
-                                        <input type="text" name="address">
-                                    </div>
+                            </div>
+                            <div class="field-group">
+                                <div class="field">
+                                    <label for="state">Estado</label>
+                                    <select name="uf">
+                                        <option value>Selecione o estado</option>
+                                        <input type="hidden" name="state">
+                                    </select>
                                 </div>
-                                <div class="field-group">
-                                    <div class="field">
-                                        <label for="state">Estado</label>
-                                        <select name="uf">
-                                            <option value>Selecione o estado</option>
-                                            <input type="hidden" name="state">
-                                        </select>
-                                    </div>
-                                    <div class="field">
-                                        <label for="city">Cidade</label>
-                                        <select name="city">
-                                            <option value>Selecione a cidade</option>
-                                        </select>
-                                    </div>
+                                <div class="field">
+                                    <label for="city">Cidade</label>
+                                    <select name="city">
+                                        <option value>Selecione a cidade</option>
+                                    </select>
                                 </div>
-                            </fieldset>
-                            <fieldset class="fieldset-planos">
-                                <h2 class="title">Escolha nossos serviços:</h2>
-                                <div class="cards">
-                                    <div class="card">
-                                        <i class="icon-trim"></i>
-                                        <p class="card-text">Corte</p>
-                                        <p class="card-price">R$60,00</p>
-                                    </div>
-                                    <div class="card">
-                                        <i class="icon-woman-hair"></i>
-                                        <p class="card-text">Terapia Capilar</p>
-                                        <p class="card-price">R$150,00</p>
-                                    </div>
-                                    <div class="card">
-                                        <i class="icon-cosmetic"></i>
-                                        <p class="card-text">Hidratação</p>
-                                        <p class="card-price">R$80,00</p>
-                                    </div>
-                                    <div class="card">
-                                        <i class="icon-manicure"></i>
-                                        <p class="card-text">Manicure</p>
-                                        <p class="card-price">R$100,00</p>
-                                    </div>
-                                    <div class="card">
-                                        <i class="icon-eyebrow"></i>
-                                        <p class="card-text">Sombrancelha</p>
-                                        <p class="card-price">R$50,00</p>
-                                    </div>
-                                    <div class="card">
-                                        <i class="icon-depilation"></i>
-                                        <p class="card-text">Depilação</p>
-                                        <p class="card-price">R$80,00</p>
-                                    </div>
-                                    <div class="card">
-                                        <i class="icon-makeup"></i>
-                                        <p class="card-text">Maquiagem</p>
-                                        <p class="card-price">R$90,00</p>
-                                    </div>
-                                    <div class="card">
-                                        <i class="icon-skincare"></i>
-                                        <p class="card-text">Skin care</p>
-                                        <p class="card-price">R$120,00</p>
-                                    </div>
-                                    <div class="card">
-                                        <i class="icon-dye"></i>
-                                        <p class="card-text">Tintura</p>
-                                        <p class="card-price">R$100,00</p>
-                                    </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="fieldset-planos">
+                            <h2 class="title">Escolha nossos serviços:</h2>
+                            <div class="cards">
+                                <div class="card">
+                                    <i class="icon-trim"></i>
+                                    <p class="card-text">Corte</p>
+                                    <p class="card-price">R$60,00</p>
                                 </div>
-                                <input type="hidden" name="items">
-                                <input type="hidden" name="total">
-                            </fieldset>
-                            <div class="price"></div>
-                            <button type="submit" class="button button-make-an-appointment">Enviar</button>
-                        </form>
-                    </div>
+                                <div class="card">
+                                    <i class="icon-woman-hair"></i>
+                                    <p class="card-text">Terapia Capilar</p>
+                                    <p class="card-price">R$150,00</p>
+                                </div>
+                                <div class="card">
+                                    <i class="icon-cosmetic"></i>
+                                    <p class="card-text">Hidratação</p>
+                                    <p class="card-price">R$80,00</p>
+                                </div>
+                                <div class="card">
+                                    <i class="icon-manicure"></i>
+                                    <p class="card-text">Manicure</p>
+                                    <p class="card-price">R$100,00</p>
+                                </div>
+                                <div class="card">
+                                    <i class="icon-eyebrow"></i>
+                                    <p class="card-text">Sombrancelha</p>
+                                    <p class="card-price">R$50,00</p>
+                                </div>
+                                <div class="card">
+                                    <i class="icon-depilation"></i>
+                                    <p class="card-text">Depilação</p>
+                                    <p class="card-price">R$80,00</p>
+                                </div>
+                                <div class="card">
+                                    <i class="icon-makeup"></i>
+                                    <p class="card-text">Maquiagem</p>
+                                    <p class="card-price">R$90,00</p>
+                                </div>
+                                <div class="card">
+                                    <i class="icon-skincare"></i>
+                                    <p class="card-text">Skin care</p>
+                                    <p class="card-price">R$120,00</p>
+                                </div>
+                                <div class="card">
+                                    <i class="icon-dye"></i>
+                                    <p class="card-text">Tintura</p>
+                                    <p class="card-price">R$100,00</p>
+                                </div>
+                            </div>
+                            <input type="hidden" name="items">
+                            <input type="hidden" name="total">
+                        </fieldset>
+                        <div class="price"></div>
+                        <button type="submit" class="button button-make-an-appointment">Enviar</button>
+                    </form>
                 </div>
-            </section>
-        </main>
-        <script type="module" src="scripts/make-an-appointment.js"></script>
-    </body>
-</html>
+            </div>
+        </section>
+    </main>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}
+
+{% block scripts %}
+    <script type="module" src="scripts/make-an-appointment.js"></script>
+{% endblock scripts %}
