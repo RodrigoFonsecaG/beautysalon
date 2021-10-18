@@ -22,7 +22,7 @@ Para completar o projeto adicionei algumas funções como:
 - Validação de CPF e CEP utilizando regexp
 - Tooltip
 - Formulario para agendamento de horarios utilizando banco de dados (em progresso)
-- Servidor express
+- Servidor express junto com nunjucks
 
 ---------
 ---------
