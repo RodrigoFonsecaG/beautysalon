@@ -1,0 +1,17 @@
+{
+  "name": "beautysalon",
+  "description": "BeautySalon é um salão de beleza que oferece diversos serviços como cortes, tratamentos e terapia capilar.",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodrigoFonsecaG/beautysalon.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
