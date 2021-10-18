@@ -1,0 +1,29 @@
+    <section class="modal-container" data-modal="container">
+      <div class="modal">
+        <button class="close">X</button>
+        <form id="formulario" name="formularios">
+          <label for="nome">Nome</label>
+          <input type="text" name="nome" id="nome" required/>
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="email" required/>
+          <label for="telefone">Telefone</label>
+          <input type="number" name="telefone" id="telefone" required/>
+          <label for="cpf">
+            <p>CPF</p>
+            <p class="error-message">CPF Inválido</p>
+          </label>
+          <input type="text" name="cpf" id="cpf" required/>
+          <label for="cep">
+            <p>CEP</p>
+            <p class="error-message">CEP Inválido</p>
+          </label>
+          <input type="text" name="cep" id="cep" required/>
+          <label for="image">
+            <p>Sua foto</p>
+            <p>(Opcional)</p>
+          </label>
+          <input type="file" name="image" id="image"/>
+          <button type="submit" class="button button-submit">Enviar</button>
+        </form>
+      </div>
+    </section>
