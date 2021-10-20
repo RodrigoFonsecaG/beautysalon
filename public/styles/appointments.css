@@ -1,0 +1,131 @@
+.logo-page-make-an-appointment {
+  font: 700 1.31rem var(--title-font);
+  color: var(--title-color);
+  margin: 0 auto;
+}
+
+.logo-page-make-an-appointment span {
+  color: var(--base-color);
+}
+
+#appointments {
+  background: var(--body-color);
+  padding: 5rem 0;
+  height: 100vh;
+}
+
+#appointments .content {
+  margin: 0 1.5rem 1.5rem 1.5rem;
+}
+
+#appointments .client-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#appointments .client-card {
+  display: flex;
+  background: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+}
+
+#appointments .client-card .main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  background: var(--base-color);
+  padding: 3rem 2rem;
+  
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-family: var(--title-font);
+
+  width: 300px;
+  height: 400px;
+
+  text-align: center;
+  color: white;
+}
+
+#appointments .client-card h1 {
+  font-weight: bold;  
+}
+
+#appointments .client-card .client-date{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+#appointments .client-card .additional-info{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem;
+  color: var(--text-color);
+}
+
+#appointments .client-card .client-services{
+  color: var(--base-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  word-break: break-all;
+}
+
+#appointments .client-card .client-address{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#appointments .client-card .client-tel{
+  margin-top: 1rem;
+}
+
+#appointments .total-schedule {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 950px){
+  #appointments .container {
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+  }
+  
+  @media (max-width: 1050px){
+    #appointments .content .client-cards {
+      grid-template-columns: 1fr;
+    }
+    #appointments .total-schedule {
+      color: var(--base-color);
+      font-size: 1.5rem;
+      margin: 5rem;
+      text-align: center;
+    }
+
+  }
+
+  @media (max-width: 715px){
+    #appointments .client-card{
+      flex-direction: column;
+    }
+    #appointments .client-card .main-info {   
+      height: 350px;
+      width: 100%;
+    }
+  }
+
+
+

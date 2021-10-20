@@ -21,8 +21,8 @@ Para completar o projeto adicionei algumas funções como:
 - Refatoração utilizando classes
 - Validação de CPF e CEP utilizando regexp
 - Tooltip
-- Formulario para agendamento de horarios utilizando banco de dados (em progresso)
 - Servidor express junto com nunjucks
+- Sistema de agendamento de horário utilizando banco de dados e formulario.
 
 ---------
 ---------
