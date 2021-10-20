@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agendamentos</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="styles/appointments.css">
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <header id="header">
+        <nav class="container">
+            <a class="logo-page-make-an-appointment" href="/">beauty<span>salon</span>.</a>
+        </nav>
+    </header>
+    <body>
+        <main>
+            <section class="section" id="appointments">
+                <div class="container grid">
+                    <div class="content">
+                        {% if total > 0 %}
+                            <h4 class="total-schedule">
+                                <strong>{{ total }}</strong> horários encontrados
+                            </h4>
+                            <div class="client-cards">
+                                {% for client in schedule %}
+                                    <div class="client-card">
+                                        <div class="main-info">
+                                            <h1>{{ client.name }}</h1>
+                                            <div class="client-date">
+                                                <h2>{{ client.date.split('-').reverse().join('/') }}</h2>
+                                                <h2>{{ client.time }}</h2>          
+                                            </div>
+                                            <h2 class="client-total">{{ client.total }}</h2>
+                                        </div>
+                                        <div class="additional-info">
+                                            <h3 class="client-services">{{ client.services }}</h3>
+                                            <div class="client-address">
+                                                <p>{{ client.address }},
+                                                    {{ client.address2 }}</p>
+                                                <p>{{ client.city }},
+                                                    {{ client.state }}</p>
+                                            </div>
+                                            <p class="client-tel">{{ client.tel }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <h4>
+                                <strong>Nenhum</strong> hórario encontrado</h4>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

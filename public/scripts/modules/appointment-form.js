@@ -14,13 +14,10 @@ export default class Appointment {
 
   showUserData() {
     const userName = JSON.parse(localStorage.getItem('dados')).nome;
-    const userEmail = JSON.parse(localStorage.getItem('dados')).email;
 
     const nomeInput = document.querySelector("input[name='name']");
-    const emailInput = document.querySelector("input[name='email']");
 
     nomeInput.value = userName;
-    emailInput.value = userEmail;
   }
 
   async populateStates() {
@@ -85,21 +82,37 @@ export default class Appointment {
   sumServicesPrice() {
     const inputPrices = document.querySelector('input[name="total"]');
     const prices = this.servicesPriceArray();
-    const priceDiv = document.querySelector('.price')
+    const priceDiv = document.querySelector('.price');
     let sumPrices = 0;
 
     this.cards.forEach((card, index) => {
       card.addEventListener('click', (event) => {
-
         if (card.classList.contains('selected')) {
- 
-          sumPrices += prices[index]; 
+          sumPrices += prices[index];
         } else {
           sumPrices -= prices[index];
         }
-        priceDiv.innerHTML = 'Total: ' + sumPrices.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-        inputPrices.value = sumPrices;
+        let price = sumPrices.toLocaleString('pt-br', {
+          style: 'currency',
+          currency: 'BRL'
+        });
+        priceDiv.innerHTML =
+          'Total: ' + price
+          
+        inputPrices.value = price;
       });
+    });
+  }
+
+  excludeWeekendsDates() {
+    const picker = document.getElementById('date');
+    picker.addEventListener('input', function (e) {
+      const day = new Date(this.value).getUTCDay();
+      if ([6, 0].includes(day)) {
+        e.preventDefault();
+        this.value = '';
+        alert('Não atendemos nos finais de semana :(');
+      }
     });
   }
 
@@ -115,6 +128,7 @@ export default class Appointment {
         }
       }
       this.hideItemsInput.value = this.selectedItems;
+      
     });
   }
 
@@ -124,6 +138,7 @@ export default class Appointment {
       this.showUserData();
       this.populateStates();
       this.enableCities();
+      this.excludeWeekendsDates();
       this.sumServicesPrice();
       this.submitEvents();
     }
