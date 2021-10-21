@@ -35,7 +35,7 @@
             <a class="title br" href="#contact">Contato</a>
           </li>
           <li>
-            <a class="title" href="/appointments"><i class="icon-calendar"></i></a>
+            <a class="title" href="#"><i class="icon-calendar"></i></a>
           </li>
           
           <li>
@@ -345,6 +345,11 @@
 {% block modal %}
   {%include "partials/modal.html"%}
 {% endblock modal %}
+
+{% block modalSearch %}
+  {%include "partials/modal-search.html"%}
+{% endblock modalSearch %}
+
 
 {% block scripts %}
   <!--Swiper-->

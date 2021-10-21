@@ -20,9 +20,20 @@
             <section class="section" id="appointments">
                 <div class="container grid">
                     <div class="content">
+                        <div class="actual-date">
+                            <div class="today-date">
+                                <button class="btn today-btn">Hoje</button>
+                            </div>
+                            <div class="change-date">
+                                <i class="back-date">🡸</i>
+                                <h1>{{ search }}</h1>
+                                <i class="forward-date">🡺</i>
+                            </div>
+                        </div>
                         {% if total > 0 %}
                             <h4 class="total-schedule">
-                                <strong>{{ total }}</strong> horários encontrados
+                                <strong>{{ total }}</strong>
+                                horários encontrados
                             </h4>
                             <div class="client-cards">
                                 {% for client in schedule %}
@@ -31,7 +42,7 @@
                                             <h1>{{ client.name }}</h1>
                                             <div class="client-date">
                                                 <h2>{{ client.date.split('-').reverse().join('/') }}</h2>
-                                                <h2>{{ client.time }}</h2>          
+                                                <h2>{{ client.time }}</h2>
                                             </div>
                                             <h2 class="client-total">{{ client.total }}</h2>
                                         </div>
@@ -43,19 +54,21 @@
                                                 <p>{{ client.city }},
                                                     {{ client.state }}</p>
                                             </div>
-                                            <p class="client-tel">{{ client.tel }}</p>  
-                                        </div>           
-                                        <button class="delete-schedule">X</button>
+                                            <p class="client-tel">{{ client.tel }}</p>
+                                        </div>
+                                        <button class="btn delete-schedule">X</button>
                                     </div>
                                 {% endfor %}
                             </div>
                         {% else %}
                             <h4>
-                                <strong>Nenhum</strong> hórario encontrado</h4>
+                                <strong>Nenhum</strong>
+                                hórario encontrado</h4>
                         {% endif %}
                     </div>
                 </div>
             </section>
         </main>
+        <script src="scripts/appointments.js"></script>
     </body>
 </html>

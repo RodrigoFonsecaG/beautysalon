@@ -72,8 +72,16 @@ INSERT INTO schedule(
   db.run(query, values, afterInsertData);
 });
 
-server.get('/appointments', (req, res) => {
-  db.all(`SELECT * FROM schedule`, function (err, rows) {
+server.get('/search', (req, res) => {
+
+  const search = req.query.date;
+
+  if(search == ""){
+    // pesquisa vazia 
+   return res.render("appointments.html", {total: 0})
+}
+
+  db.all(`SELECT * FROM schedule WHERE date = ?`, search , function (err, rows) {
     if (err) {
       return console.log(err);
     }
@@ -82,7 +90,7 @@ server.get('/appointments', (req, res) => {
 
     const total = rows.length;
 
-    return res.render('appointments.html', { schedule: rows, total });
+    return res.render('appointments.html', { schedule: rows, total, search});
   });
 });
 
