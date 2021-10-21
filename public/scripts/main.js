@@ -89,7 +89,12 @@ timer.init();
 
 
 import scheduleModal from './modules/schedule.js';
-scheduleModal();
+scheduleModal('.button-schedule','.modal-container','.close','.modal');
+
+
+import searchModal from './modules/search-modal.js';
+searchModal('.icon-calendar','.search-modal','.close','.modal');
+
 
 import scheduleForm from './modules/form.js';
 const formShedule = new scheduleForm();
