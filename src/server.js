@@ -3,6 +3,7 @@ const server = express();
 
 const db = require('./database/db.js');
 
+
 const nunjucks = require('nunjucks');
 nunjucks.configure('src/views', {
   express: server,

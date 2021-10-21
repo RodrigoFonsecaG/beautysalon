@@ -15,13 +15,14 @@
 }
 
 #appointments .content {
-  margin: 0 1.5rem 1.5rem 1.5rem;
+  margin: 0;
 }
 
 #appointments .client-cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+
 }
 
 #appointments .client-card {
@@ -29,6 +30,7 @@
   background: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 10px;
+
 }
 
 #appointments .client-card .main-info {
@@ -97,6 +99,30 @@
   margin-bottom: 5rem;
 }
 
+#appointments .delete-schedule {
+    background-color: var(--base-color);
+    color: var(--text-color-light);
+    width: 40px;
+    height: 32px;
+    height: 2rem;
+    align-items: center;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+    font: 500 1rem var(--body-font);
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+#appointments .delete-schedule:hover{
+  background: var(--base-color-alt);
+}
+
+
+
 @media (min-width: 950px){
   #appointments .container {
       max-width: 1200px;
@@ -125,6 +151,12 @@
       height: 350px;
       width: 100%;
     }
+
+    #appointments .client-card .main-info {
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 0;
+    }
+    
   }
 
 

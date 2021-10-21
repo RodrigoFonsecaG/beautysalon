@@ -31,13 +31,14 @@ db.serialize(() => {
 
 
 //4 - Deletar dados da tabela
-
-/*db.all(`DELETE FROM schedule WHERE id=?`,[4], function(err){
+/*db.all(`DELETE FROM schedule WHERE id=?`,[1], function(err){
     if(err){
         return console.log(err)
     }
     console.log("Registro deletado com sucesso!")
 })*/
+
+
 
 
 
