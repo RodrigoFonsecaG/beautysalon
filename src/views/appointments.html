@@ -56,7 +56,9 @@
                                             </div>
                                             <p class="client-tel">{{ client.tel }}</p>
                                         </div>
-                                        <button class="btn delete-schedule">X</button>
+                                        {% block deleteInput %}
+                                            {% include "partials/delete-data.html" %}
+                                        {% endblock deleteInput %}
                                     </div>
                                 {% endfor %}
                             </div>
