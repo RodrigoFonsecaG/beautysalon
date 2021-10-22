@@ -1,3 +1,4 @@
+/*Botoes de para frente e para tras para mostrar os dados de uma data especifica*/
 const url = window.location.href;
 const back = document.querySelector('.back-date');
 const forward = document.querySelector('.forward-date');
@@ -53,6 +54,13 @@ today.addEventListener('click', function(){
     const todayDate = actualDate();
     window.location.href = `${urlWithoutDate}${todayDate}`
 })
+
+
+if(window.location.pathname === '/delete'){
+  const todayDate = actualDate();
+  const diaAtual = window.location.href.replace(window.location.href,`${window.location.origin}/search?date=${todayDate}`);
+  window.location.href = diaAtual;
+}
 
 
 

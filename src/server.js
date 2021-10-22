@@ -3,7 +3,6 @@ const server = express();
 
 const db = require('./database/db.js');
 
-
 const nunjucks = require('nunjucks');
 nunjucks.configure('src/views', {
   express: server,
@@ -61,37 +60,46 @@ INSERT INTO schedule(
 
   function afterInsertData(err) {
     if (err) {
-      return res.render("make-an-appointment.html", {error:true})
+      return res.render('make-an-appointment.html', { error: true });
     }
     console.log('Cadastrado com sucesso');
     console.log(this);
 
-    return res.render("make-an-appointment.html", {saved:true})
+    return res.render('make-an-appointment.html', { saved: true });
   }
 
   db.run(query, values, afterInsertData);
 });
 
 server.get('/search', (req, res) => {
-
   const search = req.query.date;
 
-  if(search == ""){
-    // pesquisa vazia 
-   return res.render("appointments.html", {total: 0})
-}
+  if (search == '') {
+    // pesquisa vazia
+    return res.render('appointments.html', { total: 0 });
+  }
 
-  db.all(`SELECT * FROM schedule WHERE date = ?`, search , function (err, rows) {
+  db.all(`SELECT * FROM schedule WHERE date = ?`, search, function (err, rows) {
     if (err) {
       return console.log(err);
     }
-    console.log('Aqui estão os registros');
-    console.log(rows);
 
     const total = rows.length;
 
-    return res.render('appointments.html', { schedule: rows, total, search});
+    return res.render('appointments.html', { schedule: rows, total, search });
   });
+});
+
+server.post('/delete', (req, res) => {
+  const id = req.body.id
+
+  db.all(`DELETE FROM schedule WHERE id=?`, [id], function (err) {
+    if (err) {
+      return console.log(err);
+    }
+  });
+
+  return res.render('appointments.html');
 });
 
 //Liga o servidor
