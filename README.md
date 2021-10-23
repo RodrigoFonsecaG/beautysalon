@@ -49,6 +49,19 @@ Para completar o projeto adicionei algumas funções como:
 ----
 ----
 
+## 💻 Instalação e uso
+
+# Instale as dependências
+$ yarn install
+
+# Rode o aplicação
+$ yarn start
+```
+
+Agora acesse o localhost:3000 no seu navegador.
+
+<br>
+
 ## 📝 Licença
 
 O projeto está sob a licença MIT. Para saber mais, acesse o arquivo [LICENSE](https://github.com/RodrigoFonsecaG/bikcraft/blob/main/LICENSE).
