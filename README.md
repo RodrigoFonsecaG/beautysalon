@@ -51,14 +51,17 @@ Para completar o projeto adicionei algumas funções como:
 
 ## 💻 Instalação e uso
 
+# Abra um terminal e copie este repositório com o comando
+$ git clone https://github.com/RodrigoFonsecaG/beautysalon.git
+# ou use a opção de download.
+
 # Instale as dependências
 $ yarn install
 
 # Rode o aplicação
 $ yarn start
 
-
-Agora acesse o localhost:3000 no seu navegador.
+#Por fim acesse o localhost:3000 no seu navegador.
 
 ----
 ----
