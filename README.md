@@ -56,11 +56,12 @@ $ yarn install
 
 # Rode o aplicação
 $ yarn start
-```
+
 
 Agora acesse o localhost:3000 no seu navegador.
 
-<br>
+----
+----
 
 ## 📝 Licença
 
