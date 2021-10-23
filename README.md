@@ -56,11 +56,14 @@ Para completar o projeto adicionei algumas funções como:
 $ git clone https://github.com/RodrigoFonsecaG/beautysalon.git
 # ou use a opção de download.
 
+# Entre na pasta do projeto 
+$ cd beautysalon
+
 # Instale as dependências
-$ yarn install
+$ npm install
 
 # Rode o aplicação
-$ yarn start
+$ npm start
 
 #Por fim acesse o localhost:3000 no seu navegador.
 ```
