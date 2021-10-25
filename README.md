@@ -28,10 +28,18 @@ Para completar o projeto adicionei algumas funções como:
 ---------
 
 ## 🖥️ Demonstração
-[![BeautySalon](screencapture-127-0-0-1-5500-2021-09-03-22_18_41.png "Clique para acessar o projeto")](https://beautysalon1.vercel.app/ "Clique para acessar o projeto")  
 
+<h1>
+    <img src="home.png"
+</h1> 
 
-## >>**[Clique aqui para acessar a demonstração do website](https://beautysalon1.vercel.app/)**<<
+<h1>
+   <img src="agendar-horario.png"
+</h1> 
+   
+<h1>
+   <img src="pesquisar.png"
+</h1> 
 
 
 ----------
@@ -45,6 +53,9 @@ Para completar o projeto adicionei algumas funções como:
 - **HTML5**
 - **CSS3**
 - **JavaScript**
+- **NodeJS**
+- **Express**
+- **SQLite**
 
 ----
 ----
